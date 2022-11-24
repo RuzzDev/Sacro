@@ -1,0 +1,24 @@
+{
+    "name": "savgym/punto-de-venta",
+    "description": "control de accesos y punto de venta para gimnasios",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "angel david hernandez ruiz",
+            "email": "angelruiz.dh@gmail.com"
+        },
+        {
+            "name": "jesus alejandro hernandez gonzalez",
+            "email": "jesushzgz123.dh@gmail.com"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "savgym\\":"src/"
+        }
+    }
+}

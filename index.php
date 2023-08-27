@@ -39,7 +39,7 @@
 
                         <div class="row">
                             <p>
-                            <div class="mx-auto" style="width: 430px;" align="middle">
+                            <div class="mx-auto">
                                 <img src="img/Logo.png" height="400" width="500">
 
                             </div>

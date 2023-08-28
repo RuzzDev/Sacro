@@ -58,7 +58,7 @@
      </div>
  </div>
 
- <!-- reportes por usuario Modal -->
+ <!-- reporte de ventas por usuario Modal -->
  <div class="modal fade" id="logoutModalReporteVentasPorUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
          <div class="modal-content">
@@ -94,7 +94,7 @@
      </div>
  </div>
 
- <!-- reportes por fecha Modal -->
+ <!-- reporte de ventas por fecha Modal -->
  <div class="modal fade" id="logoutModalReporteVentasPorFecha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
          <div class="modal-content">
@@ -106,6 +106,71 @@
              </div>
              <form method="POST" action="reporte_ventas_fecha.php" enctype="multipart/form-data">
                  <div class="modal-body">Selecciona un rango de fechas y presiona "Aceptar" para generar un reporte de ventas.</div>
+                 <div class="col-md-12">
+                     <label>De:</label>
+                     <input class="custom-select" type="date" id="start" name="inicio" min="2020-01-01" max="2035-12-31" required>
+                 </div>
+                 <div class="col-md-12">
+                     <label>A:</label>
+                     <input class="custom-select" type="date" id="start" name="fin" min="2020-01-01" max="2035-12-31" required>
+                 </div>
+                 <div class="modal-footer">
+                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                     <input type="submit" name="accion" class="btn btn-primary" value="Aceptar">
+                 </div>
+             </form>
+         </div>
+     </div>
+ </div>
+
+ <!-- reporte de visitas por cliente Modal -->
+ <div class="modal fade" id="logoutModalReporteVisitasPorCliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">¿De que cliente deseas saber las visitas?</h5>
+                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">×</span>
+                 </button>
+             </div>
+             <form method="POST" action="reporte_visitas_cliente.php" enctype="multipart/form-data">
+                 <div class="modal-body">Selecciona un cliente de la lista y presiona "Aceptar" para generar un reporte de visitas.</div>
+                 <div class="col-md-12">
+                     <div class="form-group">
+                         <select class="form-control" name="usuario" required>
+                             <?php
+                                require 'vendor/autoload.php';
+                                $cliente = new savgym\Cliente;
+                                $info_cliente = $cliente->mostrar();
+                                foreach ($info_cliente as $fila) : ?>
+                                 <option value="<?php echo $fila['id_cliente'] ?>"><?php echo $fila['nombre'] ?></option>
+                             <?php
+                                endforeach
+                                ?>
+                         </select>
+                     </div>
+                 </div>
+                 <div class="modal-footer">
+                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                     <input type="submit" name="accion" class="btn btn-primary" value="Aceptar">
+                 </div>
+             </form>
+         </div>
+     </div>
+ </div>
+
+ <!-- reporte de visitas por fecha Modal -->
+ <div class="modal fade" id="logoutModalReporteVisitasPorFecha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">¿De que periodo deseas consultar las visitas?</h5>
+                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">×</span>
+                 </button>
+             </div>
+             <form method="POST" action="reporte_visitas_fecha.php" enctype="multipart/form-data">
+                 <div class="modal-body">Selecciona un rango de fechas y presiona "Aceptar" para generar un reporte de visitas.</div>
                  <div class="col-md-12">
                      <label>De:</label>
                      <input class="custom-select" type="date" id="start" name="inicio" min="2020-01-01" max="2035-12-31" required>

@@ -36,8 +36,7 @@
                             <h1 class=" font-weight-bolder text-warning">SACRO GYM</h1>
                         </center>
                         <!-- Nested Row within Card Body -->
-
-                        <div class="row">
+                        <div class="main-frame">
                             <p>
                             <div class="mx-auto">
                                 <img src="img/Logo.png" height="400" width="500">
@@ -97,5 +96,14 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
 </body>
+<style>
+    .main-frame {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -.75rem;
+        margin-left: -.75rem;
+        align-items: center;
+        flex-direction: column;
+    }
+</style>

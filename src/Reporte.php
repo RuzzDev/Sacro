@@ -50,5 +50,35 @@ class Reporte
         return false;
     }
 
+    public function mostrarVisitasPorCliente($id_cliente)
+    {
+        $sql = "SELECT * FROM `visitas` WHERE `id_cliente`=:id_cliente";
+
+        $resultado = $this->cn->prepare($sql);
+        $_array = array(
+            ":id_cliente" =>  $id_cliente
+        );
+
+        if ($resultado->execute($_array))
+            return $resultado->fetchAll();
+
+        return false;
+    }
+
+    public function mostrarVisitasPorRangoDeFecha($fecha_inicio,$fecha_fin)
+    {
+        $sql = "SELECT * FROM `visitas` WHERE `fecha` >= :fecha_inicio AND `fecha` <= :fecha_fin "; 
+
+        $resultado = $this->cn->prepare($sql);
+        $_array = array(
+            ":fecha_inicio" =>  $fecha_inicio,
+            ":fecha_fin" =>  $fecha_fin,
+        );
+
+        if ($resultado->execute($_array))
+            return $resultado->fetchAll();
+
+        return false;
+    }
 }
 ?>
